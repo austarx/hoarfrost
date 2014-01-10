@@ -1,0 +1,169 @@
+_color(c, l = 0, t = 10)
+    values = 1, 0.9, 0.8, 0.75, 0.67, 0.5, 0.33, 0.25, 0.17, 0.1, 0
+    f = 10% * l
+    if l < 0
+        c = darken(c, - f)
+    else
+        c = lighten(c, f)
+    return rgba(c, values[t])
+
+_linear-gradient(c, l = 0)
+    if l < 0
+        return linear-gradient(c(l), c(l - 1))
+    else
+        return linear-gradient(c(l + 1), c(l))
+
+_inverse-gradient(c, l = 0)
+    if l < 0
+        return linear-gradient(c(l - 1), c(l))
+    else
+        return linear-gradient(c(l), c(l + 1))
+
+/* Sizes **************************************************/
+
+sqr            = 20px
+sqr-l          = sqr * 1.5
+sqr-1l         = sqr-l
+sqr-2l         = sqr * 2
+sqr-m          = sqr * 0.75
+sqr-s          = sqr / 2
+sqr-1s         = sqr-s
+sqr-2s         = sqr / 4
+sqr-3s         = sqr / 5
+sqr-4s         = sqr / 8
+
+font-size      = 12px
+font-size-l    = 14px
+font-size-1l   = font-size-l
+font-size-2l   = 16px
+font-size-3l   = 18px
+font-size-s    = 10px
+font-size-1s   = 10px
+font-size-2s   = 8px
+font-size-icon = 14px;
+
+radius         = 3px
+
+
+/* Colors *************************************************/
+
+black(l = 0, t = 0)
+    return _color(#000000, l, t)
+white(l = 0, t = 0)
+    return _color(#ffffff, l, t)
+
+red(l = 0, t = 0)
+    return _color(#ea3c20, l, t)
+green(l = 0, t = 0)
+    return _color(#0f990f, l, t)
+cyan(l = 0, t = 0)
+    return _color(#00a591, l, t)
+blue(l = 0, t = 0)
+    return _color(#0080ff, l, t)
+magenta(l = 0, t = 0)
+    return _color(#e624b5, l, t)
+
+fg-color   = white
+bg-color   = black
+link-color = blue
+master     = blue
+slave      = red
+
+fg         = white
+bg         = black
+
+
+/* Fonts **************************************************/
+
+font-family = Ubuntu
+monospace   = Ubuntu Mono
+
+
+/* Other **************************************************/
+
+t-time              = 0.25s;
+t-function          = ease-out;
+
+black-text-shadow(o = 1, t = 0)
+    return 0px (1px * o) 0px black(t: t)
+white-text-shadow(o = 1, t = 5)
+    return 0px (1px * o) 0px white(t: t)
+
+red-text-shadow(o = 1, t = 0)
+    return 0px (1px * o) 0px red(t: t)
+green-text-shadow(o = 1, t = 0)
+    return 0px (1px * o) 0px green(t: t)
+cyan-text-shadow(o = 1, t = 0)
+    return 0px (1px * o) 0px cyan(t: t)
+blue-text-shadow(o = 1, t = 0)
+    return 0px (1px * o) 0px blue(t: t)
+magenta-text-shadow(o = 1, t = 0)
+    return 0px (1px * o) 0px magenta(t: t)
+
+fg-text-shadow     = white-text-shadow
+bg-text-shadow     = black-text-shadow
+master-text-shadow = blue-text-shadow
+slave-text-shadow  = red-text-shadow
+
+black-shadow(s = sqr-2s, t = 5)
+    return 0px 0px s black(t: t)
+white-shadow(s = sqr-2s, t = 5)
+    return 0px 0px s white(t: t)
+
+red-shadow(s = sqr-2s, t = 5)
+    return 0px 0px s red(t: t)
+green-shadow(s = sqr-2s, t = 5)
+    return 0px 0px s green(t: t)
+cyan-shadow(s = sqr-2s, t = 5)
+    return 0px 0px s cyan(t: t)
+blue-shadow(s = sqr-2s, t = 5)
+    return 0px 0px s blue(t: t)
+magenta-shadow(s = sqr-2s, t = 5)
+    return 0px 0px s magenta(t: t)
+
+fg-shadow     = white-shadow
+bg-shadow     = black-shadow
+master-shadow = blue-shadow
+slave-shadow  = red-shadow
+
+black-gradient(l = 0)
+    return _linear-gradient(black, l)
+white-gradient(l = 0)
+    return _linear-gradient(white, l)
+
+red-gradient(l = 0)
+    return _linear-gradient(red, l)
+green-gradient(l = 0)
+    return _linear-gradient(green, l)
+cyan-gradient(l = 0)
+    return _linear-gradient(cyan, l)
+blue-gradient(l = 0)
+    return _linear-gradient(blue, l)
+magenta-gradient(l = 0)
+    return _linear-gradient(magenta, l)
+
+fg-gradient     = white-gradient
+bg-gradient     = black-gradient
+master-gradient = blue-gradient
+slave-gradient  = red-gradient
+
+black-inverse(l = 0)
+    return _inverse-gradient(black, l)
+white-inverse(l = 0)
+    return _inverse-gradient(white, l)
+
+red-inverse(l = 0)
+    return _inverse-gradient(red, l)
+green-inverse(l = 0)
+    return _inverse-gradient(green, l)
+cyan-inverse(l = 0)
+    return _inverse-gradient(cyan, l)
+blue-inverse(l = 0)
+    return _inverse-gradient(blue, l)
+magenta-inverse(l = 0)
+    return _inverse-gradient(magenta, l)
+
+fg-inverse     = white-inverse
+bg-inverse     = black-inverse
+master-inverse = blue-inverse
+slave-inverse  = red-inverse

@@ -1,0 +1,158 @@
+svg.defs
+    #win-tab-active
+        stop
+            &:first-child
+                stop-color master(2)
+            &:last-child
+                stop-color master(1)
+    #win-tab-active-pressed
+        stop
+            &:first-child
+                stop-color master()
+            &:last-child
+                stop-color master(1)
+
+.win-grid
+    @extend .fill
+    display flex
+    flex-direction column
+
+    div
+        position relative
+
+    .win-header
+        size(100%, sqr-2l)
+        line-height sqr-l
+        display flex
+        -webkit-user-select none
+        -webkit-app-region drag
+        background-image master-gradient(-2)
+
+        div
+            position relative
+            -webkit-app-region no-drag
+
+        .win-title
+            height sqr-l
+            display flex
+            align-self flex-end
+            padding-right sqr-s
+
+            i:first-child
+                margin-right - sqr-s
+
+            i:last-child
+                margin-left - sqr-s
+
+            .win-title-text
+                padding-left sqr-s
+                padding-right sqr-s
+                position relative
+
+        .win-tabs
+            height sqr-l
+            margin-left - sqr-s
+            display flex
+            flex 1
+            align-self flex-end
+            overflow visible
+
+            .win-tab
+                height 100%
+                position relative
+                flex 1
+                display flex
+                overflow visible
+
+                .win-tab-bg
+                    width unquote('calc(100% + 20px)')
+                    height 100%
+                    margin-left - sqr-s
+                    margin-right -sqr-s
+                    position absolute
+                    display flex
+                    overflow visible
+
+                    svg
+                        size(sqr-l + sqr-m, sqr-l)
+                        fill bg-color(t: 9)
+
+                        &:last-child
+                            -webkit-transform scale(-1, 1)
+
+                    .center
+                        height 100%
+                        flex 1
+                        background-color bg-color(t: 9)
+
+                i:first-child
+                    margin-right - sqr-s
+
+                i:last-child
+                    margin-left - sqr-s
+
+                .win-tab-text
+                    padding-left sqr-s
+                    padding-right sqr-s
+                    position relative
+                    align-self flex-end
+
+                &:hover
+                    z-index 1
+                    svg
+                        fill fg-color(t: 8)
+                    .center
+                        background-color fg-color(t: 8)
+                &:active
+                    svg
+                        fill bg-color(t: 7)
+                    .center
+                        background-color bg-color(t: 7)
+                &.active
+                    z-index 2
+                    svg
+                        fill url(#win-tab-active)
+                        stroke none
+                    .center
+                        background-image master-gradient(1)
+                        border none
+                    &:hover
+                        svg
+                            fill master(1)
+                        .center
+                            background-color master(1)
+                            background-image none
+                    &:active
+                        svg
+                            fill url(#win-tab-active-pressed)
+                        .center
+                            background-image master-inverse()
+
+        .win-buttons
+            -webkit-app-region no-drag
+            margin-left sqr-l
+
+        .button
+            background-image none
+
+            &.checked
+                background-color bg-color(t: 9)
+
+            &:hover
+                background-color fg-color(t: 8)
+
+            &:active
+                background-color bg-color(t: 7)
+
+    .win-body
+        flex 1
+
+        .win-menu
+        .win-page
+            display none
+
+            &.active
+                display flex
+
+.maximized>.win-header
+    height sqr-l

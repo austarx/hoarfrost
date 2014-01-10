@@ -1,0 +1,85 @@
+html
+    @extend .fill
+
+    &>body
+        @extend .fill
+
+        cursor default
+
+        color fg()
+        background-color bg()
+
+        font-family font-family
+        font-size font-size
+        line-height sqr
+
+*
+    box-sizing border-box
+
+    &::selection
+        background-color magenta()
+        color fg()
+
+html
+body
+div
+header
+footer
+article
+section
+aside
+    @extend .no-spaces
+    @extend .block
+
+code
+    // TODO: Use codemirror for code blocks
+    font-family monospace
+    font-size font-size
+    line-height sqr
+
+pre
+    font-family monospace
+    font-size font-size
+    line-height sqr
+
+    padding 0px sqr-2s 0px sqr-2s
+    margin 0px 0px sqr-s 0px
+    background-color master(t: 4)
+    border-radius radius
+
+p
+    padding 0px
+    margin 0px 0px sqr-s 0px
+
+    &:last-child
+        margin-bottom 0px
+
+h1 // TODO: replace paddings and margins with single rule
+    padding 0px sqr-m 0px sqr-m
+
+    margin sqr-s 0px sqr-s 0px
+
+    font-size font-size-3l
+    line-height sqr-l
+
+h2
+    padding 0px sqr-m 0px sqr-m
+
+    margin sqr-s 0px sqr-s 0px
+
+    font-size font-size-2l
+    line-height sqr
+
+h3
+    padding sqr-s sqr-m sqr-s sqr-m
+    margin 0px 0px sqr-s 0px
+    font-size font-size-l
+    font-weight normal
+    background-color master-2t
+    border-radius radius
+
+    &:last-child
+        margin-bottom 0px
+
+a
+    color link-color()

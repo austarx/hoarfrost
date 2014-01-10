@@ -1,0 +1,28 @@
+pos(left, top)
+    left left
+    top top
+
+size(width, height)
+    width width
+    height height
+
+trans-position(time = t-time)
+    transition left time t-function,
+               top time t-function,
+               right time t-function,
+               bottom time t-function
+
+trans-size(time = t-time)
+    transition width time t-function,
+               height time t-function
+
+trans-colors(time = t-time)
+    transition color time t-function,
+               background-color time t-function,
+               border-color time t-function,
+               border-left-color time t-function,
+               border-top-color time t-function,
+               border-right-color time t-function,
+               border-bottom-color time t-function,
+               outline-color time t-function,
+               text-decoration-color time t-function

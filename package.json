@@ -1,0 +1,11 @@
+{
+    "name": "hoarfrost",
+    "version": "0.0.1",
+    "main": "./lib/index.js",
+    "dependencies": {
+        "jade": "0.35.0",
+        "stylus": "0.41.0",
+        "markdown": "0.5.0",
+        "autoprefixer": "0.8.20131104"
+    }
+}

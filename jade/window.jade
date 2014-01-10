@@ -1,0 +1,61 @@
+svg.defs(height=0, width=0)
+    defs
+        lineargradient#win-tab-active(x1=0, y1=0, x2=0, y2=1)
+            stop(offset=0)
+            stop(offset=1)
+        lineargradient#win-tab-active-pressed(x1=0, y1=0, x2=0, y2=1)
+            stop(offset=0)
+            stop(offset=1)
+    path#win-tab(d='M 20 0 C 20 0 15.018834 0 13.34375 5 L 6.65625 25 C 4.9811657 30 0 30 0 30 L 5 30 L 9.9375 30 L 45 30 L 45 0 L 20 0 z ')
+
+
+mixin window (title, buttons, tabs)
+    mixin _win-tab (active, icon, title, closable, fixed)
+        .win-tab(data-title=title
+               , class=[active?'active':undefined, fixed?'fixed':undefined])
+            .win-tab-bg
+                svg: use(xlink:href='#win-tab')
+                .center
+                svg: use(xlink:href='#win-tab')
+            if icon
+                i.fa(class='fa-'+icon)
+            .win-tab-text
+                block
+            if closable
+                i.fa.fa-times
+
+    mixin _win-title (button, icon)
+        .win-title(class=[button?'button':undefined])
+            if icon
+                i.fa.fa-m(class='fa-'+icon)
+            .win-title-text
+                block
+            if button
+                i.fa.fa-m.fa-caret-down
+
+    .win-grid
+        .win-header
+            +_win-title(title.button, title.icon)!= title.text || title
+            .win-tabs
+                each t in tabs
+                    +_win-tab(t.active
+                            , t.icon
+                            , t.title
+                            , t.closable
+                            , t.fixed)!= t.text || t
+            .win-buttons
+                each t in buttons
+                    i.button.win-button.fa.fa-m(
+                        class='fa-'+_buttons[t].icon+' '+t,
+                        data-title=_buttons[t].title
+                    )
+        .win-body
+            block
+
+mixin win-menu
+    .win-menu(attributes)
+        block
+
+mixin win-page
+    .win-page(attributes)
+        block
