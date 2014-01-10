@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Hoarfrost UI demo</title>
+
+        <script src="node_modules/hf-module/lib/mouse.js"></script>
+        <script src="node_modules/hf-module/lib/keyboard.js"></script>
+        <script>
+            //require('nw.gui').Window.get().showDevTools();
+
+            var hf = require('hf-module');
+
+            hf.jade('./demo.jade', require('./locale'));
+
+            hf.stylus('./demo.styl');
+        </script>
+    </head>
+</html>

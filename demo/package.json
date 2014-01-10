@@ -1,0 +1,19 @@
+{
+    "name": "hoarfrost-ui-demo",
+    "main": "index.html",
+    "version": "0.0.1",
+    "js-flags": "--harmony_proxies --harmony_typeof",
+    "chromium-args": "--enable-overlay-scrollbars --enable-smooth-scrolling",
+    "window": {
+        "title": "Hoarfrost UI demo",
+        "toolbar": false,
+        "frame": false,
+        "width": 800,
+        "height": 500,
+        "position": "center",
+        "maximized": true
+    },
+    "webkit": {
+        "plugin": false
+    }
+}
